@@ -5,7 +5,7 @@ module MoviesHelper
   end
 end
 
-def title
+def title_class
 
 	if params[:order] == 'title'
 		return 'hilite'
@@ -13,13 +13,5 @@ def title
 		''
 	end	
 end
-	
-def release_date
-	
-	if params[:order] == 'release_date'
-		return 'hilite'
-	else
-		''
-	end
-end	
+		
 
