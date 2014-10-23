@@ -23,3 +23,9 @@ def release_date
 	end
 end	
 
+def checked_option(rating)
+
+	params.has_key?(:ratings) && params[:ratings].has_key?(rating)
+	
+end
+

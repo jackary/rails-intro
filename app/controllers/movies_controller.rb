@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.where('rating in (?)', selected_ratings.order(params[:order])
+    @movies = Movie.where('rating in (?)' , selected_ratings).order(params[:order])
     @all_ratings = all_ratings
   end
 
@@ -41,15 +41,15 @@ class MoviesController < ApplicationController
 
 private
 
-def selected_ratings
+	def selected_ratings
 	
-	if params.has_key? (:ratings) 
-		 params[:ratings].keys 
-	else 
-		all_ratings 
+		if params.has_key? (:ratings) 
+			 params[:ratings].keys 
+		else 
+			all_ratings 
+	end
 end
-def all_ratings
-	['G','PG','PG-13','R','NC-17']
-end
-
+	def all_ratings
+		['G','PG','PG-13','R','NC-17']
+	end
 end
